@@ -34,7 +34,7 @@ public class main extends Activity implements B4AActivity{
 		super.onCreate(savedInstanceState);
         mostCurrent = this;
 		if (processBA == null) {
-			processBA = new BA(this.getApplicationContext(), null, null, "b4a.example", "b4a.example.main");
+			processBA = new anywheresoftware.b4a.ShellBA(this.getApplicationContext(), null, null, "b4a.example", "b4a.example.main");
 			processBA.loadHtSubs(this.getClass());
 	        float deviceScale = getApplicationContext().getResources().getDisplayMetrics().density;
 	        BALayout.setDeviceScale(deviceScale);
@@ -335,16 +335,28 @@ public class main extends Activity implements B4AActivity{
             
     }
 
-public anywheresoftware.b4a.keywords.Common __c = null;
-public static anywheresoftware.b4a.objects.B4XViewWrapper.XUI _xui = null;
-public b4a.example.starter _starter = null;
-  public Object[] GetGlobals() {
-		return new Object[] {"Activity",mostCurrent._activity,"Starter",Debug.moduleToString(b4a.example.starter.class),"xui",_xui};
-}
 
+
+public static void initializeProcessGlobals() {
+    
+    if (main.processGlobalsRun == false) {
+	    main.processGlobalsRun = true;
+		try {
+		        		
+        } catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+    }
+}
 public static boolean isAnyActivityVisible() {
     boolean vis = false;
 vis = vis | (main.mostCurrent != null);
+vis = vis | (register.mostCurrent != null);
+vis = vis | (credits.mostCurrent != null);
+vis = vis | (home.mostCurrent != null);
+vis = vis | (scheduler.mostCurrent != null);
+vis = vis | (pending.mostCurrent != null);
+vis = vis | (timer.mostCurrent != null);
 return vis;}
 
 private static BA killProgramHelper(BA ba) {
@@ -369,82 +381,152 @@ public static void killProgram() {
 				__a.finish();}
 
 BA.applicationContext.stopService(new android.content.Intent(BA.applicationContext, starter.class));
+ {
+            Activity __a = null;
+            if (register.previousOne != null) {
+				__a = register.previousOne.get();
+			}
+            else {
+                BA ba = killProgramHelper(register.mostCurrent == null ? null : register.mostCurrent.processBA);
+                if (ba != null) __a = ba.activity;
+            }
+            if (__a != null)
+				__a.finish();}
+
+ {
+            Activity __a = null;
+            if (credits.previousOne != null) {
+				__a = credits.previousOne.get();
+			}
+            else {
+                BA ba = killProgramHelper(credits.mostCurrent == null ? null : credits.mostCurrent.processBA);
+                if (ba != null) __a = ba.activity;
+            }
+            if (__a != null)
+				__a.finish();}
+
+ {
+            Activity __a = null;
+            if (home.previousOne != null) {
+				__a = home.previousOne.get();
+			}
+            else {
+                BA ba = killProgramHelper(home.mostCurrent == null ? null : home.mostCurrent.processBA);
+                if (ba != null) __a = ba.activity;
+            }
+            if (__a != null)
+				__a.finish();}
+
+ {
+            Activity __a = null;
+            if (scheduler.previousOne != null) {
+				__a = scheduler.previousOne.get();
+			}
+            else {
+                BA ba = killProgramHelper(scheduler.mostCurrent == null ? null : scheduler.mostCurrent.processBA);
+                if (ba != null) __a = ba.activity;
+            }
+            if (__a != null)
+				__a.finish();}
+
+ {
+            Activity __a = null;
+            if (pending.previousOne != null) {
+				__a = pending.previousOne.get();
+			}
+            else {
+                BA ba = killProgramHelper(pending.mostCurrent == null ? null : pending.mostCurrent.processBA);
+                if (ba != null) __a = ba.activity;
+            }
+            if (__a != null)
+				__a.finish();}
+
+ {
+            Activity __a = null;
+            if (timer.previousOne != null) {
+				__a = timer.previousOne.get();
+			}
+            else {
+                BA ba = killProgramHelper(timer.mostCurrent == null ? null : timer.mostCurrent.processBA);
+                if (ba != null) __a = ba.activity;
+            }
+            if (__a != null)
+				__a.finish();}
+
 }
+public anywheresoftware.b4a.keywords.Common __c = null;
+public static anywheresoftware.b4a.objects.B4XViewWrapper.XUI _xui = null;
+public anywheresoftware.b4a.objects.EditTextWrapper _tpass = null;
+public anywheresoftware.b4a.objects.EditTextWrapper _tuname = null;
+public b4a.example.starter _starter = null;
+public b4a.example.register _register = null;
+public b4a.example.credits _credits = null;
+public b4a.example.home _home = null;
+public b4a.example.scheduler _scheduler = null;
+public b4a.example.pending _pending = null;
+public b4a.example.timer _timer = null;
 public static String  _activity_create(boolean _firsttime) throws Exception{
-try {
-		Debug.PushSubsStack("Activity_Create (main) ","main",0,mostCurrent.activityBA,mostCurrent,25);
-Debug.locals.put("FirstTime", _firsttime);
- BA.debugLineNum = 25;BA.debugLine="Sub Activity_Create(FirstTime As Boolean)";
-Debug.ShouldStop(16777216);
- BA.debugLineNum = 26;BA.debugLine="Activity.LoadLayout(\"Layout\")";
-Debug.ShouldStop(33554432);
+RDebugUtils.currentModule="main";
+if (Debug.shouldDelegate(mostCurrent.activityBA, "activity_create", false))
+	 {return ((String) Debug.delegate(mostCurrent.activityBA, "activity_create", new Object[] {_firsttime}));}
+RDebugUtils.currentLine=131072;
+ //BA.debugLineNum = 131072;BA.debugLine="Sub Activity_Create(FirstTime As Boolean)";
+RDebugUtils.currentLine=131073;
+ //BA.debugLineNum = 131073;BA.debugLine="Activity.LoadLayout(\"Layout\")";
 mostCurrent._activity.LoadLayout("Layout",mostCurrent.activityBA);
- BA.debugLineNum = 27;BA.debugLine="End Sub";
-Debug.ShouldStop(67108864);
+RDebugUtils.currentLine=131074;
+ //BA.debugLineNum = 131074;BA.debugLine="End Sub";
 return "";
 }
-catch (Exception e) {
-			throw Debug.ErrorCaught(e);
-		} 
-finally {
-			Debug.PopSubsStack();
-		}}
 public static String  _activity_pause(boolean _userclosed) throws Exception{
-try {
-		Debug.PushSubsStack("Activity_Pause (main) ","main",0,mostCurrent.activityBA,mostCurrent,33);
-Debug.locals.put("UserClosed", _userclosed);
- BA.debugLineNum = 33;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
-Debug.ShouldStop(1);
- BA.debugLineNum = 35;BA.debugLine="End Sub";
-Debug.ShouldStop(4);
+RDebugUtils.currentModule="main";
+RDebugUtils.currentLine=262144;
+ //BA.debugLineNum = 262144;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
+RDebugUtils.currentLine=262146;
+ //BA.debugLineNum = 262146;BA.debugLine="End Sub";
 return "";
 }
-catch (Exception e) {
-			throw Debug.ErrorCaught(e);
-		} 
-finally {
-			Debug.PopSubsStack();
-		}}
 public static String  _activity_resume() throws Exception{
-try {
-		Debug.PushSubsStack("Activity_Resume (main) ","main",0,mostCurrent.activityBA,mostCurrent,29);
- BA.debugLineNum = 29;BA.debugLine="Sub Activity_Resume";
-Debug.ShouldStop(268435456);
- BA.debugLineNum = 31;BA.debugLine="End Sub";
-Debug.ShouldStop(1073741824);
+RDebugUtils.currentModule="main";
+if (Debug.shouldDelegate(mostCurrent.activityBA, "activity_resume", false))
+	 {return ((String) Debug.delegate(mostCurrent.activityBA, "activity_resume", null));}
+RDebugUtils.currentLine=196608;
+ //BA.debugLineNum = 196608;BA.debugLine="Sub Activity_Resume";
+RDebugUtils.currentLine=196610;
+ //BA.debugLineNum = 196610;BA.debugLine="End Sub";
 return "";
 }
-catch (Exception e) {
-			throw Debug.ErrorCaught(e);
-		} 
-finally {
-			Debug.PopSubsStack();
-		}}
-public static String  _globals() throws Exception{
- //BA.debugLineNum = 21;BA.debugLine="Sub Globals";
- //BA.debugLineNum = 23;BA.debugLine="End Sub";
+public static String  _btnlog_click() throws Exception{
+RDebugUtils.currentModule="main";
+if (Debug.shouldDelegate(mostCurrent.activityBA, "btnlog_click", false))
+	 {return ((String) Debug.delegate(mostCurrent.activityBA, "btnlog_click", null));}
+RDebugUtils.currentLine=393216;
+ //BA.debugLineNum = 393216;BA.debugLine="Private Sub btnlog_Click";
+RDebugUtils.currentLine=393218;
+ //BA.debugLineNum = 393218;BA.debugLine="End Sub";
 return "";
 }
-
-public static void initializeProcessGlobals() {
-    if (mostCurrent != null) {
-Debug.StartDebugging(mostCurrent.activityBA, 7151, new int[] {2, 2}, "1ca27f61-39a5-4291-89d1-4ab85f01d0d2");}
-
-    if (main.processGlobalsRun == false) {
-	    main.processGlobalsRun = true;
-		try {
-		        main._process_globals();
-starter._process_globals();
-		
-        } catch (Exception e) {
-			throw new RuntimeException(e);
-		}
-    }
-}public static String  _process_globals() throws Exception{
- //BA.debugLineNum = 15;BA.debugLine="Sub Process_Globals";
- //BA.debugLineNum = 18;BA.debugLine="Private xui As XUI";
-_xui = new anywheresoftware.b4a.objects.B4XViewWrapper.XUI();
- //BA.debugLineNum = 19;BA.debugLine="End Sub";
+public static String  _btnregis_click() throws Exception{
+RDebugUtils.currentModule="main";
+if (Debug.shouldDelegate(mostCurrent.activityBA, "btnregis_click", false))
+	 {return ((String) Debug.delegate(mostCurrent.activityBA, "btnregis_click", null));}
+RDebugUtils.currentLine=2883584;
+ //BA.debugLineNum = 2883584;BA.debugLine="Private Sub btnregis_Click";
+RDebugUtils.currentLine=2883585;
+ //BA.debugLineNum = 2883585;BA.debugLine="StartActivity(register)";
+anywheresoftware.b4a.keywords.Common.StartActivity(processBA,(Object)(mostCurrent._register.getObject()));
+RDebugUtils.currentLine=2883586;
+ //BA.debugLineNum = 2883586;BA.debugLine="End Sub";
+return "";
+}
+public static String  _cbshowpass_checkedchange(boolean _checked) throws Exception{
+RDebugUtils.currentModule="main";
+if (Debug.shouldDelegate(mostCurrent.activityBA, "cbshowpass_checkedchange", false))
+	 {return ((String) Debug.delegate(mostCurrent.activityBA, "cbshowpass_checkedchange", new Object[] {_checked}));}
+RDebugUtils.currentLine=327680;
+ //BA.debugLineNum = 327680;BA.debugLine="Private Sub cbshowpass_CheckedChange(Checked As Bo";
+RDebugUtils.currentLine=327682;
+ //BA.debugLineNum = 327682;BA.debugLine="End Sub";
 return "";
 }
 }
