@@ -22,6 +22,6 @@ ModuleClosedNodes4=
 ModuleClosedNodes5=
 ModuleClosedNodes6=1
 ModuleClosedNodes7=
-NavigationStack=Main,Process_Globals,19,4,Main,Activity_Resume,30,0,Main,Activity_Create,24,4,Main,Activity_Pause,36,0,Main,btnlog_Click,44,0,Main,Globals,23,0,Visual Designer,Layout.bal,-100,6,register,Activity_Pause,30,0,Main,btnregis_Click,49,2
+NavigationStack=Main,Process_Globals,19,4,Main,Activity_Resume,30,0,Main,Activity_Create,24,4,Main,Activity_Pause,36,0,Main,btnlog_Click,44,0,Main,Globals,23,0,Visual Designer,Layout.bal,-100,6,register,Activity_Pause,30,0,Main,btnregis_Click,50,2
 SelectedBuild=0
 VisibleModules=6,4,1,2,5,3,7
